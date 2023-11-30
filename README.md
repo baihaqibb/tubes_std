@@ -1,2 +1,2 @@
 # tubes_std
-tubes std uwaw
+tubes std widih keren mantap sugoi uwaw
