@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1700818616 source:d:\projects and programs\c++\tubes_std\main.cpp
+	<iostream>
+
+1700759076 d:\projects and programs\c++\tubes_std\sll_tb.h
+	<iostream>
+
+1700759320 d:\projects and programs\c++\tubes_std\dll_tb.h
+	<iostream>
+
+1700759308 d:\projects and programs\c++\tubes_std\csll_tb.h
+	<iostream>
+
+1700758309 source:d:\projects and programs\c++\tubes_std\csll_tb.cpp
+	"CSLL_TB.h"
+
+1700758296 source:d:\projects and programs\c++\tubes_std\dll_tb.cpp
+	"DLL_TB.h"
+
+1700758288 source:d:\projects and programs\c++\tubes_std\sll_tb.cpp
+	"SLL_TB.h"
+
