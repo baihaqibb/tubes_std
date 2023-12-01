@@ -4,9 +4,12 @@
 void createListChild(List_child &L){
     L.first = NULL;
 }
-address_c createElmChild(infotype_c x){
+address_c createElmChild(string id, string name, char gender, int age){
     address_c P = new elm_child;
-    P->info = x;
+    P->info.id = id;
+    P->info.name = name;
+    P->info.gender = gender;
+    P->info.age = age;
     P->next = NULL;
     return P;
 }
@@ -23,7 +26,7 @@ void insertFirstChild(List_child &L, address_c P){
         L.first = P;
     } else {
         last = L.first;
-        while (last->next != NULL) {
+        while (last->next != L.first) {
             last = last->next;
         }
         P->next = L.first;
@@ -38,7 +41,7 @@ void insertLastChild(List_child &L, address_c P){
         L.first = P;
     } else {
         last = L.first;
-        while (last->next != NULL) {
+        while (last->next != L.first) {
             last = last->next;
         }
         P->next = L.first;
@@ -46,8 +49,10 @@ void insertLastChild(List_child &L, address_c P){
     }
 }
 void insertAfterChild(List_child &L, address_c Pre, address_c P){
-    P->next = Pre->next;
-    Pre->next = P;
+    if (Pre != NULL) {
+        P->next = Pre->next;
+        Pre->next = P;
+    }
 }
 void deleteFirstChild(List_child &L, address_c &P){
     address_c last;
@@ -59,7 +64,7 @@ void deleteFirstChild(List_child &L, address_c &P){
         P->next = NULL;
     } else {
         last = L.first;
-        while (last->next != NULL) {
+        while (last->next != L.first) {
             last = last->next;
         }
         P = L.first;
@@ -79,7 +84,7 @@ void deleteLastChild(List_child &L, address_c &P){
         P->next = NULL;
     } else {
         last = L.first;
-        while (last->next != NULL) {
+        while (last->next != L.first) {
             beforeLast = last;
             last = last->next;
         }
@@ -89,12 +94,16 @@ void deleteLastChild(List_child &L, address_c &P){
     }
 }
 void deleteAfterChild(List_child &L, address_c Pre, address_c &P){
-    if (Pre->next == L.first) {
-        L.first = L.first->next;
+    if (Pre == NULL) {
+        P = NULL;
+    } else {
+        if (Pre->next == L.first) {
+            L.first = L.first->next;
+        }
+        P = Pre->next;
+        Pre->next = P->next;
+        P->next = NULL;
     }
-    P = Pre->next;
-    Pre->next = P->next;
-    P->next = NULL;
 }
 address_c findElmChild(List_child &L, string id){
     address_c P = L.first;
@@ -102,7 +111,9 @@ address_c findElmChild(List_child &L, string id){
     if (!isEmptyChild(L)) {
         do {
             found = (id == P->info.id);
-            P = P->next;
+            if (!found) {
+                P = P->next;
+            }
         } while (P != L.first && !found);
     }
     if (found) {
@@ -121,6 +132,8 @@ void printListChild(List_child L){
             cout << "Name  : " << P->info.name << endl;
             cout << "Gender: " << P->info.gender << endl;
             cout << "Age   : " << P->info.age << endl;
+            cout << "--------------------" << endl;
+            P = P->next;
         } while (P != L.first);
     }
     cout << "====================" << endl << endl;

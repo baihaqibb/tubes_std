@@ -33,8 +33,10 @@ void insertLastParent(List_parent &L, address_p P){
     }
 }
 void insertAfterParent(List_parent &L, address_p Pre, address_p P){
-    P->next = Pre->next;
-    Pre->next = P;
+    if (Pre != NULL) {
+        P->next = Pre->next;
+        Pre->next = P;
+    }
 }
 void deleteFirstParent(List_parent &L, address_p &P){
     if (isEmptyParent(L)) {
@@ -64,16 +66,22 @@ void deleteLastParent(List_parent &L, address_p &P){
     }
 }
 void deleteAfterParent(List_parent &L, address_p Pre, address_p &P){
-    P = Pre->next;
-    Pre->next = P->next;
-    P->next = NULL;
+    if (Pre == NULL || Pre->next == NULL) {
+        P = NULL;
+    } else {
+        P = Pre->next;
+        Pre->next = P->next;
+        P->next = NULL;
+    }
 }
 address_p findElmParent(List_parent &L, infotype_p x){
     address_p P = L.first;
     bool found = false;
     while (P != NULL && !found) {
         found = (x == P->info);
-        P = P->next;
+        if (!found) {
+            P = P->next;
+        }
     }
     return P;
 }
@@ -82,6 +90,7 @@ void printListParent(List_parent L){
     cout << "====================" << endl;
     while (P != NULL) {
         cout << P->info << endl;
+        P = P->next;
     }
     cout << "====================" << endl << endl;
 }

@@ -8,8 +8,8 @@ using namespace std;
 struct employee {
     string id;
     string name;
-    string gender;
-    string age;
+    char gender;
+    int age;
 };
 typedef struct employee infotype_c;
 typedef struct elm_child *address_c;
@@ -23,7 +23,7 @@ struct List_child {
 
 //PRIMITIVE SUBPROGRAMS
 void createListChild(List_child &L);
-address_c createElmChild(infotype_c x);
+address_c createElmChild(string id, string name, char gender, int age);
 bool isEmptyChild(List_child &L);
 bool isOnlyOneChild(List_child &L);
 void insertFirstChild(List_child &L, address_c P);

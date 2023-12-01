@@ -48,18 +48,20 @@ void insertLastRel(List_relation &L, address_r P){
     }
 }
 void insertAfterRel(List_relation &L, address_r Pre, address_r P){
-    if (Pre == L.last) {
-        insertLastRel(L, P);
-    } else {
-        P->next = Pre->next;
-        P->prev = Pre;
-        Pre->next->prev = P;
-        Pre->next = P;
+    if (Pre != NULL) {
+        if (Pre == L.last) {
+            insertLastRel(L, P);
+        } else {
+            P->next = Pre->next;
+            P->prev = Pre;
+            Pre->next->prev = P;
+            Pre->next = P;
+        }
     }
 }
 void deleteFirstRel(List_relation &L, address_r &P){
     if (isEmptyRel(L)) {
-        cout << "CHILD LIST EMPTY" << endl;
+        cout << "RELATION LIST EMPTY" << endl;
     } else if (isOnlyOneRel(L)) {
         P = L.first;
         L.first = NULL;
@@ -77,7 +79,7 @@ void deleteFirstRel(List_relation &L, address_r &P){
 }
 void deleteLastRel(List_relation &L, address_r &P){
     if (isEmptyRel(L)) {
-        cout << "CHILD LIST EMPTY" << endl;
+        cout << "RELATION LIST EMPTY" << endl;
     } else if (isOnlyOneRel(L)) {
         P = L.last;
         L.first = NULL;
@@ -94,16 +96,20 @@ void deleteLastRel(List_relation &L, address_r &P){
     }
 }
 void deleteAfterRel(List_relation &L, address_r Pre, address_r &P){
-    if (Pre->next == L.first) {
-        L.first = L.first->next;
-    } else if (Pre->next == L.last) {
-        L.last = L.last->prev;
+    if (Pre == NULL) {
+        P = NULL;
+    } else {
+        if (Pre->next == L.first) {
+            L.first = L.first->next;
+        } else if (Pre->next == L.last) {
+            L.last = L.last->prev;
+        }
+        P = Pre->next;
+        Pre->next = P->next;
+        P->next->prev = Pre;
+        P->next = NULL;
+        P->prev = NULL;
     }
-    P = Pre->next;
-    Pre->next = P->next;
-    P->next->prev = Pre;
-    P->next = NULL;
-    P->prev = NULL;
 }
 address_r findElmRel(List_relation &L, address_p prt, address_c cld){
     address_r P = L.first;
@@ -111,7 +117,9 @@ address_r findElmRel(List_relation &L, address_p prt, address_c cld){
     if (!isEmptyRel(L)) {
         do {
             found = (prt == P->parent && cld == P->child);
-            P = P->next;
+            if (!found) {
+                P = P->next;
+            }
         } while (P != L.first && !found);
     }
     if (found) {
@@ -126,6 +134,7 @@ void printListRel(List_relation L){
     if (!isEmptyRel(L)) {
         do {
             cout << "Parent: " << P->parent << " | Child: " << P->child << endl;
+            P = P->next;
         } while (P != L.first);
     }
     cout << "====================" << endl << endl;

@@ -1,6 +1,6 @@
-#include <iostream>
-
-using namespace std;
+#include "list_parent_SLL.h"
+#include "list_relation_CDLL.h"
+#include "list_child_CSLL.h"
 
 int main()
 {
