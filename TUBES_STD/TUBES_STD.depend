@@ -23,3 +23,23 @@
 1700818616 source:c:\users\dtm\documents\github\tubes_std\tubes_std\main.cpp
 	<iostream>
 
+1701415303 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.cpp
+	"list_child_CSLL.h"
+
+1701414867 c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.h
+	<iostream>
+
+1701417384 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.cpp
+	"list_parent_SLL.h"
+
+1701400229 c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.h
+	<iostream>
+
+1701417377 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.cpp
+	"list_relation_CDLL.h"
+
+1701400250 c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.h
+	<iostream>
+	"list_parent_SLL.h"
+	"list_child_CSLL.h"
+

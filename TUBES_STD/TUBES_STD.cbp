@@ -32,8 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="list_child_CSLL.cpp" />
 		<Unit filename="list_child_CSLL.h" />
+		<Unit filename="list_parent_SLL.cpp" />
 		<Unit filename="list_parent_SLL.h" />
+		<Unit filename="list_relation_CDLL.cpp" />
 		<Unit filename="list_relation_CDLL.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

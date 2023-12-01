@@ -12,7 +12,7 @@ struct employee {
     string age;
 };
 typedef struct employee infotype_c;
-typedef elm_child *address_c;
+typedef struct elm_child *address_c;
 struct elm_child {
     infotype_c info;
     address_c next;
@@ -24,13 +24,15 @@ struct List_child {
 //PRIMITIVE SUBPROGRAMS
 void createListChild(List_child &L);
 address_c createElmChild(infotype_c x);
+bool isEmptyChild(List_child &L);
+bool isOnlyOneChild(List_child &L);
 void insertFirstChild(List_child &L, address_c P);
 void insertLastChild(List_child &L, address_c P);
 void insertAfterChild(List_child &L, address_c Pre, address_c P);
 void deleteFirstChild(List_child &L, address_c &P);
 void deleteLastChild(List_child &L, address_c &P);
 void deleteAfterChild(List_child &L, address_c Pre, address_c &P);
-address_c findElmChild(List_child &L, infotype_c x);
+address_c findElmChild(List_child &L, string id);
 void printListChild(List_child L);
 
 #endif // LIST_CHILD_CSLL_H_INCLUDED

@@ -6,9 +6,9 @@
 using namespace std;
 
 typedef string infotype_p;
-typedef elm_parent *address_p;
+typedef struct elm_parent *address_p;
 struct elm_parent {
-    infotype info;
+    infotype_p info;
     address_p next;
 };
 struct List_parent {
@@ -18,6 +18,8 @@ struct List_parent {
 //PRIMITIVE SUBPROGRAMS
 void createListParent(List_parent &L);
 address_p createElmParent(infotype_p x);
+bool isEmptyParent(List_parent &L);
+bool isOnlyOneParent(List_parent &L);
 void insertFirstParent(List_parent &L, address_p P);
 void insertLastParent(List_parent &L, address_p P);
 void insertAfterParent(List_parent &L, address_p Pre, address_p P);
