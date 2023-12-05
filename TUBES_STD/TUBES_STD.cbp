@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="functions.cpp" />
+		<Unit filename="functions.h" />
 		<Unit filename="list_child_CSLL.cpp" />
 		<Unit filename="list_child_CSLL.h" />
 		<Unit filename="list_parent_SLL.cpp" />

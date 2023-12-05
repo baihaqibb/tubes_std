@@ -20,10 +20,8 @@
 1700758288 source:d:\projects and programs\c++\tubes_std\sll_tb.cpp
 	"SLL_TB.h"
 
-1701433797 source:c:\users\dtm\documents\github\tubes_std\tubes_std\main.cpp
-	"list_parent_SLL.h"
-	"list_relation_CDLL.h"
-	"list_child_CSLL.h"
+1701744469 source:c:\users\dtm\documents\github\tubes_std\tubes_std\main.cpp
+	"functions.h"
 
 1701432280 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.cpp
 	"list_child_CSLL.h"
@@ -31,10 +29,10 @@
 1701432239 c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.h
 	<iostream>
 
-1701429961 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.cpp
+1701779353 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.cpp
 	"list_parent_SLL.h"
 
-1701400229 c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.h
+1701779064 c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.h
 	<iostream>
 
 1701433927 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.cpp
@@ -44,4 +42,13 @@
 	<iostream>
 	"list_parent_SLL.h"
 	"list_child_CSLL.h"
+
+1701779241 source:c:\users\dtm\documents\github\tubes_std\tubes_std\functions.cpp
+	"functions.h"
+
+1701749391 c:\users\dtm\documents\github\tubes_std\tubes_std\functions.h
+	"list_parent_SLL.h"
+	"list_relation_CDLL.h"
+	"list_child_CSLL.h"
+	<iostream>
 

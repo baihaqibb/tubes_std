@@ -4,9 +4,10 @@
 void createListParent(List_parent &L){
     L.first = NULL;
 }
-address_p createElmParent(infotype_p x){
+address_p createElmParent(string id, string name){
     address_p P = new elm_parent;
-    P->info = x;
+    P->info.id = id;
+    P->info.name = name;
     P->next = NULL;
     return P;
 }
@@ -74,11 +75,11 @@ void deleteAfterParent(List_parent &L, address_p Pre, address_p &P){
         P->next = NULL;
     }
 }
-address_p findElmParent(List_parent &L, infotype_p x){
+address_p findElmParent(List_parent &L, string id){
     address_p P = L.first;
     bool found = false;
     while (P != NULL && !found) {
-        found = (x == P->info);
+        found = (id == P->info.id);
         if (!found) {
             P = P->next;
         }
@@ -89,7 +90,7 @@ void printListParent(List_parent L){
     address_p P = L.first;
     cout << "====================" << endl;
     while (P != NULL) {
-        cout << P->info << endl;
+        cout << P->info.id << " - " << P->info.name << endl;
         P = P->next;
     }
     cout << "====================" << endl << endl;

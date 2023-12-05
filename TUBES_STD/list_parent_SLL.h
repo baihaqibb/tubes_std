@@ -5,7 +5,11 @@
 
 using namespace std;
 
-typedef string infotype_p;
+struct educationHistory {
+    string id;
+    string name;
+};
+typedef struct educationHistory infotype_p;
 typedef struct elm_parent *address_p;
 struct elm_parent {
     infotype_p info;
@@ -17,7 +21,7 @@ struct List_parent {
 
 //PRIMITIVE SUBPROGRAMS
 void createListParent(List_parent &L);
-address_p createElmParent(infotype_p x);
+address_p createElmParent(string id, string name);
 bool isEmptyParent(List_parent &L);
 bool isOnlyOneParent(List_parent &L);
 void insertFirstParent(List_parent &L, address_p P);
@@ -26,7 +30,7 @@ void insertAfterParent(List_parent &L, address_p Pre, address_p P);
 void deleteFirstParent(List_parent &L, address_p &P);
 void deleteLastParent(List_parent &L, address_p &P);
 void deleteAfterParent(List_parent &L, address_p Pre, address_p &P);
-address_p findElmParent(List_parent &L, infotype_p x);
+address_p findElmParent(List_parent &L, string id);
 void printListParent(List_parent L);
 
 #endif // LIST_PARENT_SLL_H_INCLUDED
