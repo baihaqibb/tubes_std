@@ -8,6 +8,7 @@ using namespace std;
 struct educationHistory {
     string id;
     string name;
+    int hiddenCountOfEmp = 0;
 };
 typedef struct educationHistory infotype_p;
 typedef struct elm_parent *address_p;

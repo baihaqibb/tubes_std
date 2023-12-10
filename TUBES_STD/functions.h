@@ -9,16 +9,16 @@
 
 using namespace std;
 
-void addEducationData(List_parent &L);
-void addEmployeeData(List_child &L);
-void searchEmployeeData(List_child L, string id);
-void addRelationData(List_relation &L, address_p Prt, address_c Cld);
-void searchEmployeesOfEducation(List_relation &LR, address_p P);
-void deleteEducationWithRelations(List_parent &LP, List_relation &LR);
-void deleteEmployeesOfEducation(List_relation &LR, List_parent &LP, List_child &LC);
-void showAllEmployeesWithEducation(List_relation LR);
-void showEmployeesWithMostEducations(List_relation LR);
-void showEducationsWithMostEmployees(List_relation LR);
+void addEducationData(List_parent &L_Edu);
+void addEmployeeData(List_child &L_Emp);
+void searchEmployeeData(List_child L_Emp);
+void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp);
+void searchEmployeesOfEducation(List_relation &L_Rel);
+void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel);
+void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp);
+void showAllEmployeesWithEducation(List_relation L_Rel);
+void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel);
+void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel);
 
 int inputMenu();
 void menuHandler(int x);

@@ -2,14 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="list_relation_CDLL.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="338" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="functions.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="204" topLine="0" />
+			<Cursor1 position="856" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="list_relation_CDLL.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2879" topLine="0" />
+			<Cursor1 position="2836" topLine="0" />
 		</Cursor>
 		<Folding>
 			<Collapse line="3" />
@@ -22,43 +27,13 @@
 			<Collapse line="61" />
 			<Collapse line="79" />
 			<Collapse line="97" />
-			<Collapse line="113" />
+			<Collapse line="117" />
+			<Collapse line="134" />
 		</Folding>
 	</File>
 	<File name="list_child_CSLL.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="34" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="list_relation_CDLL.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="530" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="list_parent_SLL.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="985" topLine="5" />
-		</Cursor>
-	</File>
-	<File name="list_parent_SLL.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2376" topLine="8" />
-		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="13" />
-			<Collapse line="16" />
-			<Collapse line="19" />
-			<Collapse line="23" />
-			<Collapse line="35" />
-			<Collapse line="41" />
-			<Collapse line="50" />
-			<Collapse line="68" />
-		</Folding>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="41" topLine="0" />
+			<Cursor1 position="234" topLine="12" />
 		</Cursor>
 	</File>
 	<File name="list_child_CSLL.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,11 +52,40 @@
 			<Collapse line="75" />
 			<Collapse line="95" />
 			<Collapse line="107" />
+			<Collapse line="124" />
 		</Folding>
 	</File>
-	<File name="functions.cpp" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3883" topLine="35" />
+			<Cursor1 position="41" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="list_parent_SLL.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="211" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="list_parent_SLL.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1979" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="3" />
+			<Collapse line="13" />
+			<Collapse line="16" />
+			<Collapse line="19" />
+			<Collapse line="23" />
+			<Collapse line="35" />
+			<Collapse line="41" />
+			<Collapse line="50" />
+			<Collapse line="68" />
+			<Collapse line="77" />
+			<Collapse line="88" />
+		</Folding>
+	</File>
+	<File name="functions.cpp" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9193" topLine="257" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

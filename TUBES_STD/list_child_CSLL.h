@@ -10,6 +10,7 @@ struct employee {
     string name;
     char gender;
     int age;
+    int hiddenCountOfEdu = 0;
 };
 typedef struct employee infotype_c;
 typedef struct elm_child *address_c;

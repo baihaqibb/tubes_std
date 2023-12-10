@@ -104,6 +104,10 @@ void deleteAfterRel(List_relation &L, address_r Pre, address_r &P){
         } else if (Pre->next == L.last) {
             L.last = L.last->prev;
         }
+        if (L.first->next == L.first) {
+            L.first = NULL;
+            L.last = NULL;
+        }
         P = Pre->next;
         Pre->next = P->next;
         P->next->prev = Pre;
