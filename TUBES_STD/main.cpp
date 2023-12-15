@@ -2,7 +2,6 @@
 
 int main()
 {
-
-    cout << "Hello world!" << endl;
+    menuHandler();
     return 0;
 }

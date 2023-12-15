@@ -1,6 +1,6 @@
 #include "list_relation_CDLL.h"
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListRel(List_relation &L){
     L.first = NULL;
     L.last = NULL;
@@ -137,7 +137,7 @@ void printListRel(List_relation L){
     cout << "====================" << endl;
     if (!isEmptyRel(L)) {
         do {
-            cout << "Parent: " << P->parent << " | Child: " << P->child << endl;
+            cout << "Parent: " << P->parent->info.id << " | Child: " << P->child->info.id << endl;
             P = P->next;
         } while (P != L.first);
     }

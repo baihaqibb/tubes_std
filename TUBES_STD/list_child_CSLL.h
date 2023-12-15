@@ -22,7 +22,7 @@ struct List_child {
     address_c first;
 };
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListChild(List_child &L);
 address_c createElmChild(string id, string name, char gender, int age);
 bool isEmptyChild(List_child &L);

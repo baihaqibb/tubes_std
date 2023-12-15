@@ -6,21 +6,38 @@
 #include "list_child_CSLL.h"
 
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
-void addEducationData(List_parent &L_Edu);
-void addEmployeeData(List_child &L_Emp);
-void searchEmployeeData(List_child L_Emp);
-void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp);
-void searchEmployeesOfEducation(List_relation &L_Rel);
-void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel);
-void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp);
-void showAllEmployeesWithEducation(List_relation L_Rel);
-void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel);
-void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel);
+/** FUNCTIONS/PROCEDURES FOR EACH OPTIONS */
+void addEducationData(List_parent &L_Edu); // Spec a.
+void addEmployeeData(List_child &L_Emp); // Spec b.
+void searchEmployeeData(List_child L_Emp); // Spec c.
+void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp); // Spec d.
+void searchEmployeesOfEducation(List_relation &L_Rel); // Spec e.
+void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel); // Spec f.
+void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp); // Spec g.
+void showAllEmployeesWithEducation(List_relation L_Rel); // Spec h.
+void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel); // Spec i.
+void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel); // Spec j.
 
-int inputMenu();
-void menuHandler(int x);
+/** ADDITIONAL FUNCTIONS/PROCEDURES */
+// SUBPROGRAM DILUAR SPESIFIKASI SOAL
+void searchEducationData(List_parent L_Edu);
+void showAllEducationsData(List_parent L_Edu);
+void showAllEmployeesData(List_child L_Emp);
+/** TODO:
+    - DELETE AN EDUCATION DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
+    - DELETE AN EMPLOYEE DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
+*/
+
+/** MENU ELEMENTS */
+int menuElm_main();
+int menuElm_add();
+int menuElm_search();
+int menuElm_delete();
+int menuElm_show();
+void menuHandler();
 
 #endif // FUNCTIONS_H_INCLUDED

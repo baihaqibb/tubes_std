@@ -1,6 +1,6 @@
 #include "list_parent_SLL.h"
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListParent(List_parent &L){
     L.first = NULL;
 }

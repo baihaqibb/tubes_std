@@ -1,5 +1,6 @@
 #include "functions.h"
 
+/** FUNCTIONS/PROCEDURES FOR EACH OPTIONS */
 void addEducationData(List_parent &L_Edu){
     string id, name;
 
@@ -8,10 +9,10 @@ void addEducationData(List_parent &L_Edu){
 
     cout << "INPUT ID: ";
     cin >> id;
-    cout << "INPUT NAMA: ";
-    cin >> name;
     existingID = findElmParent(L_Edu, id);
     if (existingID == NULL) {
+        cout << "INPUT NAMA: ";
+        cin >> name;
         insertLastParent(L_Edu, createElmParent(id, name));
         cout << "Data berhasil dimasukkan." << endl;
     } else {
@@ -19,6 +20,8 @@ void addEducationData(List_parent &L_Edu){
         cout << "Apakah anda ingin mengubah data yang telah ada? (Y/N): ";
         cin >> ans;
         if (ans == 'Y' || ans == 'y') {
+            cout << "INPUT NAMA: ";
+            cin >> name;
             existingID->info.name = name;
             cout << "Data berhasil diubah." << endl;
         } else {
@@ -37,14 +40,14 @@ void addEmployeeData(List_child &L_Emp){
 
     cout << "INPUT ID: ";
     cin >> id;
-    cout << "INPUT NAMA: ";
-    cin >> name;
-    cout << "INPUT JENIS KELAMIN: ";
-    cin >> gender;
-    cout << "INPUT USIA: ";
-    cin >> age;
     existingID = findElmChild(L_Emp, id);
     if (existingID == NULL) {
+        cout << "INPUT NAMA: ";
+        cin >> name;
+        cout << "INPUT JENIS KELAMIN (L/P): ";
+        cin >> gender;
+        cout << "INPUT USIA: ";
+        cin >> age;
         insertLastChild(L_Emp, createElmChild(id, name, gender, age));
         cout << "Data berhasil dimasukkan." << endl;
     } else {
@@ -52,6 +55,12 @@ void addEmployeeData(List_child &L_Emp){
         cout << "Apakah anda ingin mengubah data yang telah ada? (Y/N): ";
         cin >> ans;
         if (ans == 'Y' || ans == 'y') {
+            cout << "INPUT NAMA: ";
+            cin >> name;
+            cout << "INPUT JENIS KELAMIN (L/P): ";
+            cin >> gender;
+            cout << "INPUT USIA: ";
+            cin >> age;
             existingID->info.name = name;
             existingID->info.gender = gender;
             existingID->info.age = age;
@@ -62,14 +71,14 @@ void addEmployeeData(List_child &L_Emp){
     }
 }
 void searchEmployeeData(List_child L_Emp){
-    string id;
+    string idEmp;
     address_c Emp;
 
     cout << "ID PEGAWAI YANG INGIN DICARI: ";
-    cin >> id;
-    Emp = findElmChild(L_Emp, id);
+    cin >> idEmp;
+    Emp = findElmChild(L_Emp, idEmp);
     if (Emp == NULL) {
-        cout << "Pegawai dengan ID " << id << " tidak ditemukan." << endl;
+        cout << "Pegawai dengan ID " << idEmp << " tidak ditemukan." << endl;
     } else {
         cout << "--------------------" << endl;
         cout << "ID           : " << Emp->info.id << endl;
@@ -99,10 +108,10 @@ void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp){
         cout << "Data berhasil dimasukkan." << endl;
     } else {
         if (Edu == NULL) {
-            cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!";
+            cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!" << endl;
         }
         if (Emp == NULL) {
-            cout << "ERROR: Pegawai dengan ID " << idEdu << " tidak ditemukan!";
+            cout << "ERROR: Pegawai dengan ID " << idEmp << " tidak ditemukan!" << endl;
         }
         cout << "Data gagal dimasukkan." << endl;
     }
@@ -110,11 +119,12 @@ void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp){
 void searchEmployeesOfEducation(List_relation &L_Rel){
     string idEdu;
     address_r Rel = L_Rel.first;
+    bool isFollowed = false;
 
     cout << "INPUT ID RIWAYAT PENDIDIKAN: ";
     cin >> idEdu;
-    cout << "====================" << endl;
     if (!isEmptyRel(L_Rel)) {
+        cout << "====================" << endl;
         do {
             if (Rel->parent->info.id == idEdu) {
                 cout << "--------------------" << endl;
@@ -123,11 +133,15 @@ void searchEmployeesOfEducation(List_relation &L_Rel){
                 cout << "Jenis Kelamin: " << Rel->child->info.gender << endl;
                 cout << "Umur         : " << Rel->child->info.age << endl;
                 cout << "--------------------" << endl;
+                isFollowed = true;
             }
             Rel = Rel->next;
         } while (Rel != L_Rel.first);
+        if (!isFollowed) {
+            cout << "Riwayat Pendidikan dengan ID " << idEdu << " tidak diikuti oleh siapapun" << endl;
+        }
+        cout << "====================" << endl;
     }
-    cout << "====================" << endl;
 }
 void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel){
     string idEdu;
@@ -162,8 +176,10 @@ void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel){
 
         delete tempRel;
         delete tempEdu;
+
+        cout << "Data berhasil dihapus" << endl;
     } else {
-        cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!";
+        cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!" << endl;
         cout << "Data gagal dihapus." << endl;
     }
 }
@@ -204,8 +220,10 @@ void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_ch
 
         delete tempEmp;
         delete tempRel;
+
+        cout << "Data berhasil dihapus" << endl;
     } else {
-        cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!";
+        cout << "ERROR: Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan!" << endl;
         cout << "Data gagal dihapus." << endl;
     }
 }
@@ -214,6 +232,7 @@ void showAllEmployeesWithEducation(List_relation L_Rel){
     address_r tempRel, deletedRel;
 
     if (!isEmptyRel(L_Rel)) {
+        cout << "====================" << endl;
         do {
             cout << "--------------------" << endl;
             cout << "ID                : " << Rel->child->info.id << endl;
@@ -234,6 +253,9 @@ void showAllEmployeesWithEducation(List_relation L_Rel){
             cout << endl << "--------------------" << endl;
             Rel = Rel->next;
         } while (Rel != L_Rel.first);
+        cout << "====================" << endl;
+    } else {
+        cout << "ERROR: List Relasi kosong!" << endl;
     }
 }
 void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel){
@@ -259,6 +281,13 @@ void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel){
             }
         } while (Rel != L_Rel.first);
         cout << "====================" << endl;
+    } else {
+        if (isEmptyChild(L_Emp)) {
+            cout << "ERROR: List Pegawai kosong!" << endl;
+        }
+        if (isEmptyRel(L_Rel)) {
+            cout << "ERROR: List Relasi kosong!" << endl;
+        }
     }
 }
 void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel){
@@ -282,8 +311,261 @@ void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel){
             }
         } while (Rel != L_Rel.first);
         cout << "====================" << endl;
+    } else {
+        if (isEmptyParent(L_Edu)) {
+            cout << "ERROR: List Riwayat Pendidikan kosong!" << endl;
+        }
+        if (isEmptyRel(L_Rel)) {
+            cout << "ERROR: List Relasi kosong!" << endl;
+        }
     }
 }
 
-int inputMenu();
-void menuHandler(int x);
+/** ADDITIONAL FUNCTIONS/PROCEDURES */
+void searchEducationData(List_parent L_Edu){
+    string idEdu;
+    address_p Edu;
+
+    cout << "ID RIWAYAT PENDIDIKAN YANG INGIN DICARI: ";
+    cin >> idEdu;
+    Edu = findElmParent(L_Edu, idEdu);
+    if (Edu == NULL) {
+        cout << "Riwayat Pendidikan dengan ID " << idEdu << " tidak ditemukan." << endl;
+    } else {
+        cout << "--------------------" << endl;
+        cout << "ID           : " << Edu->info.id << endl;
+        cout << "Nama         : " << Edu->info.name << endl;
+        cout << "--------------------" << endl;
+    }
+}
+void showAllEducationsData(List_parent L_Edu){
+    if (!isEmptyParent(L_Edu)) {
+        printListParent(L_Edu);
+    } else {
+        cout << "ERROR: List Riwayat Pendidikan kosong!" << endl;
+    }
+}
+void showAllEmployeesData(List_child L_Emp){
+    if (!isEmptyChild(L_Emp)) {
+        printListChild(L_Emp);
+    } else {
+        cout << "ERROR: List Pegawai kosong!" << endl;
+    }
+}
+/** TODO:
+    - DELETE AN EDUCATION DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
+    - DELETE AN EMPLOYEE DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
+*/
+
+/** MENU ELEMENTS */
+int menuElm_main(){
+    char input;
+    int res;
+    do {
+        system("cls");
+        cout << "[ EDU-EMP DB v0.1a ]" << endl;
+        cout << "======[ MENU ]======" << endl;
+        cout << "1. Tambah data" << endl;
+        cout << "2. Cari data" << endl;
+        cout << "3. Hapus data" << endl;
+        cout << "4. Tampilkan data" << endl;
+        cout << "0. EXIT" << endl << endl;
+        cout << "INPUT PENGGUNA: ";
+        cin >> input;
+        cin.sync();
+        res = int(input)-48;
+        if (res < 0 || res > 4) {
+            cout << "ERROR: Input " << input << " tidak valid!" << endl;
+            system("pause");
+        }
+    } while (res < 0 || res > 4);
+    return res;
+}
+int menuElm_add(){
+    char input;
+    int res;
+    do {
+        system("cls");
+        cout << "[ EDU-EMP DB v0.1a ]" << endl;
+        cout << "==[ TAMBAH  DATA ]==" << endl;
+        cout << "1. Tambah data Riwayat Pendidikan" << endl;
+        cout << "2. Tambah data Pegawai" << endl;
+        cout << "3. Tambah data Relasi (R.P. <-> Pgw.)" << endl;
+        cout << "0. Kembali" << endl << endl;
+        cout << "INPUT PENGGUNA: ";
+        cin >> input;
+        cin.sync();
+        res = int(input)-48;
+        if (res < 0 || res > 3) {
+            cout << "ERROR: Input tidak valid!" << endl;
+            system("pause");
+        }
+    } while (res < 0 || res > 3);
+    return res;
+}
+int menuElm_search(){
+    char input;
+    int res;
+    do {
+        system("cls");
+        cout << "[ EDU-EMP DB v0.1a ]" << endl;
+        cout << "===[ CARI  DATA ]===" << endl;
+        cout << "1. Cari data Riwayat Pendidikan" << endl;
+        cout << "2. Cari data Pegawai" << endl;
+        cout << "3. Cari data Pegawai dengan Riwayat Pendidikan tertentu" << endl;
+        cout << "0. Kembali" << endl << endl;
+        cout << "INPUT PENGGUNA: ";
+        cin >> input;
+        cin.sync();
+        res = int(input)-48;
+        if (res < 0 || res > 3) {
+            cout << "ERROR: Input tidak valid!" << endl;
+            system("pause");
+        }
+    } while (res < 0 || res > 3);
+    return res;
+}
+int menuElm_delete(){
+    char input;
+    int res;
+    do {
+        system("cls");
+        cout << "[ EDU-EMP DB v0.1a ]" << endl;
+        cout << "===[ HAPUS DATA ]===" << endl;
+        cout << "1. Hapus data Riwayat Pendidikan serta Relasinya" << endl;
+        cout << "2. Hapus data Pegawai yang memiliki Riwayat Pendidikan tertentu" << endl;
+        cout << "0. Kembali" << endl << endl;
+        cout << "INPUT PENGGUNA: ";
+        cin >> input;
+        cin.sync();
+        res = int(input)-48;
+        if (res < 0 || res > 2) {
+            cout << "ERROR: Input tidak valid!" << endl;
+            system("pause");
+        }
+    } while (res < 0 || res > 2);
+    return res;
+}
+int menuElm_show(){
+    char input;
+    int res;
+    do {
+        system("cls");
+        cout << "[ EDU-EMP DB v0.1a ]" << endl;
+        cout << "==[ TAMPIL  DATA ]==" << endl;
+        cout << "1. Tampilkan seluruh data Riwayat Pendidikan" << endl;
+        cout << "2. Tampilkan seluruh data Pegawai" << endl;
+        cout << "3. Tampilkan seluruh data Pegawai beserta Riwayat Pendidikannya" << endl;
+        cout << "4. Tampilkan data Pegawai yang memiliki Riwayat Pendidikan terbanyak" << endl;
+        cout << "5. Tampilkan data Riwayat Pendidikan yang paling banyak diikuti oleh Pegawai" << endl;
+        cout << "0. Kembali" << endl << endl;
+        cout << "INPUT PENGGUNA: ";
+        cin >> input;
+        cin.sync();
+        res = int(input)-48;
+        if (res < 0 || res > 5) {
+            cout << "ERROR: Input tidak valid!" << endl;
+            system("pause");
+        }
+    } while (res < 0 || res > 5);
+    return res;
+}
+void menuHandler(){
+    List_parent L_Edu;
+    List_relation L_Rel;
+    List_child L_Emp;
+    int input = -1;
+
+    createListParent(L_Edu);
+    createListRel(L_Rel);
+    createListChild(L_Emp);
+    do {
+        input = menuElm_main();
+        switch (input) {
+        case 1:
+            input = menuElm_add();
+            switch (input) {
+            case 1:
+                addEducationData(L_Edu);
+                system("pause");
+                break;
+            case 2:
+                addEmployeeData(L_Emp);
+                system("pause");
+                break;
+            case 3:
+                addRelationData(L_Rel, L_Edu, L_Emp);
+                system("pause");
+                break;
+            default:
+                input = -1;
+                break;
+            }
+            break;
+        case 2:
+        input = menuElm_search();
+            switch (input) {
+            case 1:
+                searchEducationData(L_Edu);
+                system("pause");
+                break;
+            case 2:
+                searchEmployeeData(L_Emp);
+                system("pause");
+                break;
+            case 3:
+                searchEmployeesOfEducation(L_Rel);
+                system("pause");
+                break;
+            default:
+                input = -1;
+                break;
+            }
+            break;
+        case 3:
+        input = menuElm_delete();
+            switch (input) {
+            case 1:
+                deleteEducationWithRelations(L_Edu, L_Rel);
+                system("pause");
+                break;
+            case 2:
+                deleteEmployeesOfEducation(L_Rel, L_Edu, L_Emp);
+                system("pause");
+                break;
+            default:
+                input = -1;
+                break;
+            }
+            break;
+        case 4:
+        input = menuElm_show();
+            switch (input) {
+            case 1:
+                showAllEducationsData(L_Edu);
+                system("pause");
+                break;
+            case 2:
+                showAllEmployeesData(L_Emp);
+                system("pause");
+                break;
+            case 3:
+                showAllEmployeesWithEducation(L_Rel);
+                system("pause");
+                break;
+            case 4:
+                showEmployeesWithMostEducations(L_Emp, L_Rel);
+                system("pause");
+                break;
+            case 5:
+                showEducationsWithMostEmployees(L_Edu, L_Rel);
+                system("pause");
+                break;
+            default:
+                input = -1;
+                break;
+            }
+            break;
+        }
+    } while (input != 0);
+}

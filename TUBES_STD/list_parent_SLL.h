@@ -20,7 +20,7 @@ struct List_parent {
     address_p first;
 };
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListParent(List_parent &L);
 address_p createElmParent(string id, string name);
 bool isEmptyParent(List_parent &L);

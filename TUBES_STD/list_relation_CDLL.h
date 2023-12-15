@@ -20,7 +20,7 @@ struct List_relation {
     address_r last;
 };
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListRel(List_relation &L);
 address_r createElmRel(address_p Prt, address_c Cld);
 bool isEmptyRel(List_relation &L);

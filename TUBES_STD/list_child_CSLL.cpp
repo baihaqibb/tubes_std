@@ -1,6 +1,6 @@
 #include "list_child_CSLL.h"
 
-//PRIMITIVE SUBPROGRAMS
+/**PRIMITIVE SUBPROGRAMS*/
 void createListChild(List_child &L){
     L.first = NULL;
 }
