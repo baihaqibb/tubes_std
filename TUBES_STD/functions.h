@@ -16,8 +16,8 @@ void addEmployeeData(List_child &L_Emp); // Spec b.
 void searchEmployeeData(List_child L_Emp); // Spec c.
 void addRelationData(List_relation &L_Rel, List_parent L_Edu, List_child L_Emp); // Spec d.
 void searchEmployeesOfEducation(List_relation &L_Rel); // Spec e.
-void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel); // Spec f.
-void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp); // Spec g.
+void deleteEducationDataWithRelations(List_parent &L_Edu, List_relation &L_Rel); // Spec f.
+void deleteAllEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp); // Spec g.
 void showAllEmployeesWithEducation(List_relation L_Rel); // Spec h.
 void showEmployeesWithMostEducations(List_child L_Emp, List_relation L_Rel); // Spec i.
 void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel); // Spec j.
@@ -27,10 +27,7 @@ void showEducationsWithMostEmployees(List_parent L_Edu, List_relation L_Rel); //
 void searchEducationData(List_parent L_Edu);
 void showAllEducationsData(List_parent L_Edu);
 void showAllEmployeesData(List_child L_Emp);
-/** TODO:
-    - DELETE AN EDUCATION DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
-    - DELETE AN EMPLOYEE DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
-*/
+void deleteEmployeeDataWithRelations(List_child &L_Emp, List_relation &L_Rel);
 
 /** MENU ELEMENTS */
 int menuElm_main();

@@ -143,7 +143,7 @@ void searchEmployeesOfEducation(List_relation &L_Rel){
         cout << "====================" << endl;
     }
 }
-void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel){
+void deleteEducationDataWithRelations(List_parent &L_Edu, List_relation &L_Rel){
     string idEdu;
     address_p Edu;
     address_r Rel = L_Rel.first;
@@ -183,10 +183,9 @@ void deleteEducationWithRelations(List_parent &L_Edu, List_relation &L_Rel){
         cout << "Data gagal dihapus." << endl;
     }
 }
-void deleteEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp){
+void deleteAllEmployeesOfEducation(List_relation &L_Rel, List_parent L_Edu, List_child &L_Emp){
     string idEdu;
     address_p Edu;
-    address_c Emp;
     address_r Rel = L_Rel.first;
     address_r tempRel;
     address_c beforeEmp, tempEmp;
@@ -352,6 +351,46 @@ void showAllEmployeesData(List_child L_Emp){
         cout << "ERROR: List Pegawai kosong!" << endl;
     }
 }
+void deleteEmployeeDataWithRelations(List_child &L_Emp, List_relation &L_Rel){
+    string idEmp;
+    address_c Emp;
+    address_r Rel = L_Rel.first;
+    address_r tempRel;
+    address_c beforeEmp, tempEmp;
+
+    cout << "INPUT ID RIWAYAT PENDIDIKAN: ";
+    cin >> idEmp;
+    Emp = findElmChild(L_Emp, idEmp);
+
+    if (Emp != NULL) {
+        do {
+            if (Rel->child == Emp) {
+                Rel = Rel->next;
+                deleteAfterRel(L_Rel, Rel->prev->prev, tempRel);
+            } else {
+                Rel = Rel->next;
+            }
+        } while (Rel != L_Rel.first && Rel->next != NULL);
+
+        if (Emp == L_Emp.first) {
+            deleteFirstChild(L_Emp, tempEmp);
+        } else {
+            beforeEmp = L_Emp.first;
+            while (beforeEmp->next != Emp) {
+                beforeEmp = beforeEmp->next;
+            }
+            deleteAfterChild(L_Emp, beforeEmp, tempEmp);
+        }
+
+        delete tempRel;
+        delete tempEmp;
+
+        cout << "Data berhasil dihapus" << endl;
+    } else {
+        cout << "ERROR: Pegawai dengan ID " << idEmp << " tidak ditemukan!" << endl;
+        cout << "Data gagal dihapus." << endl;
+    }
+}
 /** TODO:
     - DELETE AN EDUCATION DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
     - DELETE AN EMPLOYEE DATA (AND RELATION WITH IT) ACCORDING TO ITS ID
@@ -432,8 +471,9 @@ int menuElm_delete(){
         system("cls");
         cout << "[ EDU-EMP DB v0.1a ]" << endl;
         cout << "===[ HAPUS DATA ]===" << endl;
-        cout << "1. Hapus data Riwayat Pendidikan serta Relasinya" << endl;
-        cout << "2. Hapus data Pegawai yang memiliki Riwayat Pendidikan tertentu" << endl;
+        cout << "1. Hapus data Riwayat Pendidikan beserta Relasinya" << endl;
+        cout << "2. Hapus data Pegawai beserta Relasinya" << endl;
+        cout << "3. Hapus semua data Pegawai yang memiliki Riwayat Pendidikan tertentu" << endl;
         cout << "0. Kembali" << endl << endl;
         cout << "INPUT PENGGUNA: ";
         cin >> input;
@@ -526,11 +566,15 @@ void menuHandler(){
         input = menuElm_delete();
             switch (input) {
             case 1:
-                deleteEducationWithRelations(L_Edu, L_Rel);
+                deleteEducationDataWithRelations(L_Edu, L_Rel);
                 system("pause");
                 break;
             case 2:
-                deleteEmployeesOfEducation(L_Rel, L_Edu, L_Emp);
+                deleteEmployeeDataWithRelations(L_Emp, L_Rel);
+                system("pause");
+                break;
+            case 3:
+                deleteAllEmployeesOfEducation(L_Rel, L_Edu, L_Emp);
                 system("pause");
                 break;
             default:
