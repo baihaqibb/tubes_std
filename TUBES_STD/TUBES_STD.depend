@@ -1,52 +1,66 @@
 # depslib dependency file v1.0
-1700818616 source:d:\projects and programs\c++\tubes_std\main.cpp
+1703577979 source:c:\users\rahma\documents\c++\tubes_std\list_child_csll.cpp
 	<iostream>
-
-1700759076 d:\projects and programs\c++\tubes_std\sll_tb.h
-	<iostream>
-
-1700759320 d:\projects and programs\c++\tubes_std\dll_tb.h
-	<iostream>
-
-1700759308 d:\projects and programs\c++\tubes_std\csll_tb.h
-	<iostream>
-
-1700758309 source:d:\projects and programs\c++\tubes_std\csll_tb.cpp
-	"CSLL_TB.h"
-
-1700758296 source:d:\projects and programs\c++\tubes_std\dll_tb.cpp
-	"DLL_TB.h"
-
-1700758288 source:d:\projects and programs\c++\tubes_std\sll_tb.cpp
-	"SLL_TB.h"
-
-1702950054 source:c:\users\dtm\documents\github\tubes_std\tubes_std\main.cpp
-	"functions.h"
-
-1702625442 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.cpp
 	"list_child_CSLL.h"
 
-1702625446 c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.h
+1703577674 c:\users\rahma\documents\c++\tubes_std\list_child_csll.h
 	<iostream>
 
-1702625440 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.cpp
+1703577979 source:c:\users\rahma\documents\c++\tubes_std\list_parent_sll.cpp
+	<iostream>
 	"list_parent_SLL.h"
 
-1702625453 c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.h
+1703577674 c:\users\rahma\documents\c++\tubes_std\list_parent_sll.h
 	<iostream>
 
-1702625441 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.cpp
+1703577979 source:c:\users\rahma\documents\c++\tubes_std\list_relation_cdll.cpp
+	<iostream>
 	"list_relation_CDLL.h"
 
-1702625450 c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.h
+1703577674 c:\users\rahma\documents\c++\tubes_std\list_relation_cdll.h
 	<iostream>
 	"list_parent_SLL.h"
 	"list_child_CSLL.h"
 
-1702950105 source:c:\users\dtm\documents\github\tubes_std\tubes_std\functions.cpp
-	"functions.h"
+1703578015 source:c:\users\rahma\documents\c++\tubes_std\function.cpp
+	<iostream>
+	"function.h"
 
-1702950105 c:\users\dtm\documents\github\tubes_std\tubes_std\functions.h
+1703577674 c:\users\rahma\documents\c++\tubes_std\function.h
+	"list_parent_SLL.h"
+	"list_relation_CDLL.h"
+	"list_child_CSLL.h"
+	<iostream>
+	<stdlib.h>
+
+1704423689 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.cpp
+	<iostream>
+	"list_child_CSLL.h"
+
+1704423689 c:\users\dtm\documents\github\tubes_std\tubes_std\list_child_csll.h
+	<iostream>
+
+1704423689 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.cpp
+	<iostream>
+	"list_parent_SLL.h"
+
+1704423689 c:\users\dtm\documents\github\tubes_std\tubes_std\list_parent_sll.h
+	<iostream>
+
+1704423689 source:c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.cpp
+	<iostream>
+	"list_relation_CDLL.h"
+
+1704423689 c:\users\dtm\documents\github\tubes_std\tubes_std\list_relation_cdll.h
+	<iostream>
+	"list_parent_SLL.h"
+	"list_child_CSLL.h"
+
+1704423689 source:c:\users\dtm\documents\github\tubes_std\tubes_std\main.cpp
+	<iostream>
+	"function.h"
+
+1704423689 c:\users\dtm\documents\github\tubes_std\tubes_std\function.h
 	"list_parent_SLL.h"
 	"list_relation_CDLL.h"
 	"list_child_CSLL.h"

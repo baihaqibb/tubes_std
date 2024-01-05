@@ -1,7 +1,10 @@
-#include "functions.h"
+#include <iostream>
+#include "function.h"
+
+using namespace std;
 
 int main()
 {
-    menuHandler();
+    menuHandler(); /*memanggil function menuHandler*/
     return 0;
 }
